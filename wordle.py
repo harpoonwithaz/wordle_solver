@@ -1,4 +1,5 @@
 import os, random
+#jayden was here
 os.chdir ("Wordle")
 global keyword, alphabet, alphabet_color, word_list
 word_list_file = open("words.txt","r")
