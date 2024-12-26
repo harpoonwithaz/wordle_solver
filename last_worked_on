@@ -1,1 +1,4 @@
 in this file just tell the other person what you were working on/what you did
+
+26.12.2024 - Jayden
+Fixed up check_real_word function. Sometimes it would say the word doesn't exist if it was at the very end or begining of the dictionary. Also added hyper to the dictionary of words. I also started the sortlist function, but it is not implemented yet.
