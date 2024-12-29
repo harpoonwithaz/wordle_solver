@@ -1,4 +1,5 @@
 import os, random
+#jayden was here
 os.chdir ("Wordle")
 global keyword, alphabet, alphabet_color, word_list
 word_list_file = open("words.txt","r")
@@ -72,6 +73,12 @@ def word_color_check(guessword):
                             if alphabet_color[alphabetindex] != 1:
                                 alphabet_color[alphabetindex] = 2                    
                             break
+    for x in range(5):
+        if returnlist[x] != 1:
+            if returnlist[x] != 2:
+                returnlist[x] = 3
+                alphabetindex = alphabet.index(keyword[x])
+                alphabet_color[alphabetindex] = 3
 
 
     return returnlist
