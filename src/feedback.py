@@ -1,6 +1,3 @@
-
-#jayden was here
-
 # checks user's guess compared to the secret
 def get_feedback(guess : str, secret : str, word_list : list) -> list:
     """

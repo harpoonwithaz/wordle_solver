@@ -2,9 +2,10 @@ import random, os
 import feedback
 
 # Reads words.txt in local directory and 
-word_list = (open(f'{os.getcwd()}\\data\\words.txt','r')).read().splitlines()
-
+word_list = (open(f'{os.getcwd()}\\wordle_solvr\\wordle_solver\\data\\words.txt','r')).read().splitlines() #this is for jayden, comment this line and use the other one
+#word_list = (open(f'{os.chdir("\\data\\words.txt")}','r')).read().splitlines()
 secret_word = random.choice(word_list)
+
 
 attempts = 6
 
