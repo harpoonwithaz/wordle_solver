@@ -16,12 +16,19 @@ def get_feedback(guess : str, secret : str, word_list : list) -> list:
         else:
             feedback.append('X')  # Gray: letter not in the word
     for j in range(5):
-        if secret.count(guess[j]) == feedback.count("G"):
-            for user_word_index in range(5):
-                if feedback[user_word_index] == "Y": 
-                    feedback[user_word_index] = "X"
+        if feedback[j] == "Y":
+            green_count = yellow_count = 0
+            secret_count = secret.count(guess[j])
+            for x in range(5):
+                if secret[x] == guess[j] and feedback[x] == "G":
+                    green_count += 1
+                if secret[x] == guess[j] and feedback[x] == "Y":
+                    yellow_count += 1
+            if green_count + yellow_count > secret_count:
+                feedback[j] = 'X'
+
                     
     return ''.join(feedback)
 
-#answer = get_feedback("angla","aback",[]) #for testing
+#answer = get_feedback("earls","angle",[]) #for testing
 #print(answer)
