@@ -1,12 +1,12 @@
 #Jayden Phan - program to see the amount of letters in a list of words, and get the word with the most frequent letters in the list
-word_list = [
-    "apple", "grape", "train", "table", "chair", "space", "brush", "cloud", "limit", "plant",
-    "stone", "frame", "light", "bread", "river", "bloom", "shark", "flame", "wrist", "curve",
-]
+#word_list = [
+#    "apple", "angle", "train", "table", "chair", "space", "brush", "cloud", "limit", "plant",
+#    "stone", "ample", "light", "bread", "river", "bloom", "shark", "flame", "wrist", "curve",
+#]
+word_list = ["diets","tides"]
 
-
-a = "aisck"
-b = "XYXXX"
+a = "ample"
+b = "GXXGG"
 
 def prune_word_list(word_list, feedback, user_guess): #function to remove words that cannot be the right word
     
@@ -22,11 +22,10 @@ def prune_word_list(word_list, feedback, user_guess): #function to remove words 
                     word_list.pop(word_list.index(word))
                     break
             elif feedback[letter_color_index] == "X": #if letter is grey
-                print("here")
                 if user_guess[letter_color_index] in word:#checking if the grey letter is in the word, if yes go to below
-                    for letter in range(len(user_guess)): #basicaly for loop in range(5)
+                    for letter in range(len(user_guess)): #for loop in range(5)
                         if user_guess[letter] == user_guess[letter_color_index]:#checks if the grey letter is in the word more than once
-                            if feedback[letter] == "G" or "Y": #if it finds the letter again, checks if it is green or yellow. If it is then turns pop_flag off so it doesnt accidentally remove the word
+                            if feedback[letter] == ("G" or "Y"): #if it finds the letter again, checks if it is green or yellow. If it is then turns pop_flag off so it doesnt accidentally remove the word
                                 pop_flag = False       
                     if pop_flag == True:
                         word_list.pop(word_list.index(word))
@@ -47,7 +46,11 @@ def create_guess(word_list):
     alphabet_dict = {}
     for word in word_list:
         for letter in word:
-            alphabet_dict[letter]["count"] += 1
+            if letter in alphabet_dict:
+                alphabet_dict[letter] += 1 
+            else:
+                alphabet_dict[letter] = 1
+
     ''' the code below is not needed. but it takes the amount of occurrences of a letter then divides it by the total amount of letters. This will get the letter as a percentage of the total letters.
     for letter in alphabet_dict:
         alphabet_dict[letter]["weight"] = round(((alphabet_dict[letter]["count"]/totalcounter)*100),3)
@@ -57,13 +60,14 @@ def create_guess(word_list):
 
     for word in word_list:
         unique_letters = set(word)
-        score = sum(alphabet_dict[letter]["count"] for letter in unique_letters)
+        score = sum(alphabet_dict[letter] for letter in unique_letters)
         word_value[word] = score
 
     answer = max(word_value, key=word_value.get)
-    print(answer)
+    return(answer)
+    #print(answer)
 
-
+#create_guess(word_list)
 '''     
 for key, value in word_value.items():
     print(f"{key}: {value}") 
