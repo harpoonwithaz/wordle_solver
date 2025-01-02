@@ -1,17 +1,15 @@
-import random, os
-import feedback, algorithm
+#Wordle solver to find best guess
 
-# Reads words.txt in local directory and 
+import random, os
+import algorithm
+
 word_list = (open(f'{os.getcwd()}\\wordle_solver\\data\\words.txt','r')).read().splitlines() #this is for jayden, comment this line and use the other one
 #word_list = (open(f'{os.chdir("\\data\\words.txt")}','r')).read().splitlines()
-secret_word = random.choice(word_list)
-#secret_word = "tides"
-#word that can cause a problem. ["label","minds","quest"]
-#anyword that ends in: "abel","inds","est"
 potential_list = word_list
-attempts = 6
+guesses = 6
 
-while attempts > 0:
+
+while guesses > 0:
     while True:
         # Asks user for guess
         user_guess = input("Enter your 5-letter guess: ").strip().lower()
@@ -28,33 +26,37 @@ while attempts > 0:
             print('Invalid word')
             continue
         break
-        
-
-    if user_guess == 'exit':
+    if user_guess =="exit":
         break
-    else:
-        if user_guess == secret_word:
-            print("\033[1;32m")
-            print(f'Victory! The word was: {secret_word}')
-            print("\033[0;37m")
+    while True:
+        # Asks user for feedback
+        user_feedback = input("What was the result of your guess: ").strip()
+
+        if user_feedback == 'exit':
             break
 
-        word_feedback = feedback.get_feedback(user_guess, secret_word, word_list)
+        # Checks if it has 5 characters
+        if len(user_feedback) != 5 or not user_feedback.isalpha():
+            print("5 letters pls")
+            continue
+        break 
 
-        print(f"Feedback: {word_feedback}")     
+    if user_feedback == "GGGGG":
+        break
+    if user_guess == 'exit':
+        break
+    else:   
 
         #algorithm imports
         potential_list.pop(potential_list.index(user_guess))
-        potential_list = algorithm.prune_word_list(potential_list,word_feedback,user_guess)
+        potential_list = algorithm.prune_word_list(potential_list,list(user_feedback),user_guess)
         best_guess = algorithm.create_guess(potential_list)
         if len(potential_list) < 10: print(potential_list)
         print("You should guess",best_guess)
         
-        attempts -= 1
-        if attempts > 0:
-            print(f"You have {attempts} attempts remaining.\n")
-        else:
-            print(f"Game over! The secret word was: {secret_word}")
-            break
+    guesses -= 1
+if guesses <= 0:
+    print("You lose!")
+else:
+    print("You win!")
 
-        print(f'Secret word btw: {secret_word}')
