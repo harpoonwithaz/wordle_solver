@@ -1,10 +1,16 @@
-import random, os
-import feedback, algorithm
+import random
 
-# Reads words.txt in local directory and 
-word_list = (open(f'{os.getcwd()}\\wordle_solver\\data\\words.txt','r')).read().splitlines() #this is for jayden, comment this line and use the other one
-#word_list = (open(f'{os.chdir("\\data\\words.txt")}','r')).read().splitlines()
+# Imports local modules
+import feedback, algorithm, filepaths
+
+# Opens 5 letter words file and assigns the contents to a list
+word_file = open(filepaths.five_letter_words, 'r')
+word_list = word_file.read().splitlines()
+
+# Selects a random word from list
+
 secret_word = random.choice(word_list)
+
 #secret_word = "tides"
 #word that can cause a problem. ["label","minds","quest"]
 #anyword that ends in: "abel","inds","est"
