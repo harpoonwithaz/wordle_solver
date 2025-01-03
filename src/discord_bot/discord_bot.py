@@ -46,6 +46,12 @@ async def hello(interaction: discord.Integration):
 @bot.tree.command(name='play')
 async def play(interaction: discord.Integration):
     
+    embed = discord.Embed(description="helllo lol \n<:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783>\n<:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783>\n<:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783>\n<:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783>\n<:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783>\n<:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783>",
+                        colour=0x00b0f4)
+
+    embed.set_author(name="testing")
+
+    await interaction.response.send_message(embed=embed)
 
 # Runs bot with token from .env file
 bot.run(bot_token)
