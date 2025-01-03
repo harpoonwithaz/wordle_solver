@@ -1,6 +1,9 @@
 # Ignores personal workspace settigns
 .vscode
 
+# Ignores sensitive information files
+.env
+
 # Ignore Python cache and virtual environment directories
 __pycache__/
 *.py[cod]
