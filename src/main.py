@@ -9,11 +9,11 @@ word_list = word_file.read().splitlines()
 
 # Selects a random word from list
 
-secret_word = random.choice(word_list)
+#secret_word = random.choice(word_list)
 
-#secret_word = "tides"
-#word that can cause a problem. ["label","minds","quest"]
-#anyword that ends in: "abel","inds","est"
+secret_word = "shard"
+#word that can cause a problem. ["label","minds","quest","shard"]
+#anyword that ends in: "*abel","*inds","**est","**ard"
 potential_list = word_list
 attempts = 6
 

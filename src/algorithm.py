@@ -3,10 +3,10 @@
 #    "apple", "angle", "train", "table", "chair", "space", "brush", "cloud", "limit", "plant",
 #    "stone", "ample", "light", "bread", "river", "bloom", "shark", "flame", "wrist", "curve",
 #]
-word_list = ['yards', 'yarns', 'yawns', 'yearn', 'years', 'yeast', 'yells', 'yelps', 'yield', 'yoked', 'yokes', 'yolks', 'young', 'yours', 'youth', 'zebra', 'zones']
+word_list = ['yards', 'yarns', 'shard', 'yearn', 'years', 'yeast', 'yells', 'yelps', 'yield', 'yoked', 'yokes', 'yolks', 'young', 'yours', 'youth', 'zebra', 'zones']
 
 a = "earls"
-b = "XYYXX"
+b = "XYYXY"
 
 def prune_word_list(word_list, feedback, user_guess): #function to remove words that cannot be the right word
     
