@@ -3,7 +3,7 @@
 import random, os
 import algorithm
 
-word_list = (open(f'{os.getcwd()}\\wordle_solver\\data\\words.txt','r')).read().splitlines() #this is for jayden, comment this line and use the other one
+word_list = (open(f'{os.getcwd()}\\data\\words.txt','r')).read().splitlines() #this is for jayden, comment this line and use the other one
 #word_list = (open(f'{os.chdir("\\data\\words.txt")}','r')).read().splitlines()
 potential_list = word_list
 guesses = 6
@@ -50,7 +50,7 @@ while guesses > 0:
         #algorithm imports
         potential_list.pop(potential_list.index(user_guess))
         potential_list = algorithm.prune_word_list(potential_list,list(user_feedback),user_guess)
-        best_guess = algorithm.create_guess(potential_list)
+        best_guess = algorithm.create_guess(potential_list,False,"place")
         if len(potential_list) < 10: print(potential_list)
         print("You should guess",best_guess)
         

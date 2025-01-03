@@ -9,15 +9,16 @@ word_list = word_file.read().splitlines()
 
 # Selects a random word from list
 #secret_word = random.choice(word_list)
-secret_word = "shard"
-
-#word that can cause a problem. ["label","minds","quest","shard"]
-#anyword that ends in: "*abel","*inds","**est","**ard"
+secret_word = "deeds"
+#['', '', '', '', 'weets', 'sinds', 'fifed', 'wraps', 'sages', 'spart', 'murre']
+#word that can cause a problem. ["frass"]
+#anyword that ends in: "*abel","*inds","**est","**ard","*ards","*iers","fa*ed","**ack","*o*ed","*o*es","*uffs","sa*er","*inos","*olds","*o*er"
 potential_list = list(word_list) 
 attempts = 6
 run = True
 
-# best guess at start = aeros
+best_guess = algorithm.create_guess(potential_list,False,"alone")
+print(best_guess)
 
 while attempts > 0:
     while True:
