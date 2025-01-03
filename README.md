@@ -79,7 +79,6 @@ pip install -r requirements.txt
 
    ```
    DISCORD_TOKEN=your_discord_bot_token_here
-   API_KEY=your_api_key_here
    ```
 
 2. **Configure Environment Variables**
