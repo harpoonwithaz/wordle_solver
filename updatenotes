@@ -3,3 +3,5 @@ in this file just tell the other person what you were working on/what you did
 26.12.2024 - Jayden
 Fixed up check_real_word function. Sometimes it would say the word doesn't exist if it was at the very end or begining of the dictionary. Also added hyper to the dictionary of words. I also started the sortlist function, but it is not implemented yet.
 
+02.01.2025 - Jayden
+Upgraded algorithm. The second guess it will give you will be used to get rid of more letters. I added, In the program algorithm in the function prune_word_list, if the the position of the letter of the word we are checking for is "Y" then remove that word. Basically it means, if I guess apple, and the "e" turns yellow. If the prune_word_list is checking against "grape" it will see that "e" is in the word, but its in a position where it cannot be, so it removes it.

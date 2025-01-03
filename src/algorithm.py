@@ -21,6 +21,9 @@ def prune_word_list(word_list, feedback, user_guess): #function to remove words 
                 if user_guess[letter_color_index] not in word:
                     word_list.pop(word_list.index(word))
                     break
+                if user_guess[letter_color_index] == word[letter_color_index]:
+                    word_list.pop(word_list.index(word))
+                    break
             elif feedback[letter_color_index] == "X": #if letter is grey
                 if user_guess[letter_color_index] in word:#checking if the grey letter is in the word, if yes go to below
                     for letter in range(len(user_guess)): #for loop in range(5)
@@ -42,32 +45,33 @@ def get_key_from_value(dictionary, value):
     return None  # If the value is not found
 
 
-def create_guess(word_list):
+def create_guess(word_list:list, first: bool, user_guess:str):
+    print("ran")
     alphabet_dict = {}
     for word in word_list:
         for letter in word:
             if letter in alphabet_dict:
-                alphabet_dict[letter] += 1 
+                alphabet_dict[letter] += 1
             else:
                 alphabet_dict[letter] = 1
 
-    ''' the code below is not needed. but it takes the amount of occurrences of a letter then divides it by the total amount of letters. This will get the letter as a percentage of the total letters.
-    for letter in alphabet_dict:
-        alphabet_dict[letter]["weight"] = round(((alphabet_dict[letter]["count"]/totalcounter)*100),3)
-    '''
-    #word_value = {lister[x]:0 for x in range(len(lister))}
+    if first == True:
+        for letter in user_guess:
+            alphabet_dict[letter] = 0
+    #print(alphabet_dict)
     word_value = {}
-
     for word in word_list:
         unique_letters = set(word)
         score = sum(alphabet_dict[letter] for letter in unique_letters)
         word_value[word] = score
 
     answer = max(word_value, key=word_value.get)
+    #print(word_value)
+    #print((word_value.get(answer)))
     return(answer)
     #print(answer)
 
-#create_guess(word_list)
+#creat_guess(word_list,True,"aeros")
 '''     
 for key, value in word_value.items():
     print(f"{key}: {value}") 

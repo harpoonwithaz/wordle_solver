@@ -8,14 +8,16 @@ word_file = open(filepaths.five_letter_words, 'r')
 word_list = word_file.read().splitlines()
 
 # Selects a random word from list
-
 #secret_word = random.choice(word_list)
-
 secret_word = "shard"
+
 #word that can cause a problem. ["label","minds","quest","shard"]
 #anyword that ends in: "*abel","*inds","**est","**ard"
-potential_list = word_list
+potential_list = list(word_list) 
 attempts = 6
+run = True
+
+# best guess at start = aeros
 
 while attempts > 0:
     while True:
@@ -50,9 +52,16 @@ while attempts > 0:
         print(f"Feedback: {word_feedback}")     
 
         #algorithm imports
-        potential_list.pop(potential_list.index(user_guess)) # Removes users guess
-        potential_list = algorithm.prune_word_list(potential_list,word_feedback,user_guess)
-        best_guess = algorithm.create_guess(potential_list)
+        if run:
+            best_guess = algorithm.create_guess(potential_list,run,user_guess)
+            potential_list.pop(potential_list.index(user_guess)) # Removes users guess
+            potential_list = algorithm.prune_word_list(potential_list,word_feedback,user_guess)
+        else:
+            if user_guess in potential_list:
+                potential_list.pop(potential_list.index(user_guess)) # Removes users guess
+            potential_list = algorithm.prune_word_list(potential_list,word_feedback,user_guess)
+            best_guess = algorithm.create_guess(potential_list,run,user_guess)
+
         if len(potential_list) < 10: print(potential_list)
         print("You should guess",best_guess)
         
@@ -62,5 +71,5 @@ while attempts > 0:
         else:
             print(f"Game over! The secret word was: {secret_word}")
             break
-
+        run = False
         print(f'Secret word btw: {secret_word}')
