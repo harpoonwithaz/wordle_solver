@@ -8,6 +8,7 @@ word_file = open(filepaths.five_letter_words, 'r')
 word_list = word_file.read().splitlines()
 
 # Selects a random word from list
+
 secret_word = random.choice(word_list)
 
 #secret_word = "tides"
