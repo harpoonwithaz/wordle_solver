@@ -36,7 +36,6 @@ Welcome to the Wordle Solver and Game project! This repository contains a Python
 - [X] Filter words from data
 - [X] Make algorithm for choosing words
     - [X] Using the feedback from main.py it will return a guess
-
     - [X] Impliment algorithm to guess
 - [ ] Discord bot implementation
 
