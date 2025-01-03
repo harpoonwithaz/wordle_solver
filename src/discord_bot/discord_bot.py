@@ -6,6 +6,9 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
+# Local imports
+import embed_container
+
 # load token from safe file
 load_dotenv()
 bot_token = os.getenv('DISCORD_TOKEN')
@@ -39,19 +42,16 @@ async def sync(interaction: discord.Integration):
 
 # Testing command
 @bot.tree.command(name='test')
-async def hello(interaction: discord.Integration):
-    await interaction.response.send_message(f'Hello {interaction.user.mention}')
+async def test(interaction: discord.Integration):
+    await interaction.response.send_message(f'Hello <:yi:1324849058832977972>')
 
-# Wordle game command
-@bot.tree.command(name='play')
-async def play(interaction: discord.Integration):
+# Command to give wordle tutorial
+@bot.tree.command(name='tutorial')
+async def tutorial(interaction: discord.Integration):
     
-    embed = discord.Embed(description="helllo lol \n<:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783>\n<:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783>\n<:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783>\n<:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783>\n<:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783>\n<:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783><:black_medium_square:1324633733474549783>",
-                        colour=0x00b0f4)
-
-    embed.set_author(name="testing")
-
+    embed = embed_container.tutorial()
     await interaction.response.send_message(embed=embed)
+
 
 # Runs bot with token from .env file
 bot.run(bot_token)
