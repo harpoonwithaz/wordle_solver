@@ -54,7 +54,6 @@ while guesses > 0:
     else:   
 
         #algorithm imports
-        potential_list.pop(potential_list.index(user_guess))
         potential_list = algorithm.prune_word_list(potential_list,list(user_feedback),user_guess)
         best_guess = algorithm.create_guess(potential_list,False,"place")
         if len(potential_list) < 10: print(potential_list)
