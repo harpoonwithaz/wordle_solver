@@ -36,7 +36,7 @@ while guesses > 0:
         break
     while True:
         # Asks user for feedback
-        user_feedback = input("What was the result of your guess: ").strip()
+        user_feedback = input("What was the result of your guess: ").strip().upper()
 
         if user_feedback == 'exit':
             break
