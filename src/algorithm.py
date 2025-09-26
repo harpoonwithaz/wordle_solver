@@ -1,12 +1,5 @@
 #Jayden Phan - program to see the amount of letters in a list of words, and get the word with the most frequent letters in the list
-#word_list = [
-#    "apple", "angle", "train", "table", "chair", "space", "brush", "cloud", "limit", "plant",
-#    "stone", "ample", "light", "bread", "river", "bloom", "shark", "flame", "wrist", "curve",
-#]
-#word_list = ['yards', 'yarns', 'shard', 'yearn', 'years', 'yeast', 'yells', 'yelps', 'yield', 'yoked', 'yokes', 'yolks', 'young', 'yours', 'youth', 'zebra', 'zones']
 
-#a = "earls"
-#b = "XYYXY"
 
 def prune_word_list(word_list, feedback, user_guess): #function to remove words that cannot be the right word
     for word in word_list[::-1]: # [::-1] makes a reverse list of word_list so it can remove words from word_list without changing the index.
