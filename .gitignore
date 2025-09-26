@@ -4,10 +4,14 @@
 # Ignores sensitive information files
 .env
 
+# Ignore environment files
+.venv
+
 # Ignore Python cache and virtual environment directories
 __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
 .env/
-/src/filepaths.py
+
+filepaths.py

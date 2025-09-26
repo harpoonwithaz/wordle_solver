@@ -6,6 +6,7 @@ import feedback, algorithm, filepaths
 word_file = open(filepaths.five_letter_words, 'r')
 word_list = word_file.read().splitlines()
 
+print(f'file opened from: {word_file}')
 
 #word_list = (open(f'{os.getcwd()}\\data\\words.txt','r')).read().splitlines() #this is for jayden, comment this line and use the other one
 #word_list = (open(f'{os.chdir("\\data\\words.txt")}','r')).read().splitlines()
